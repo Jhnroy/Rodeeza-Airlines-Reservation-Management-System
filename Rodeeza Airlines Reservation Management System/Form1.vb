@@ -7,7 +7,7 @@ Public Class Form1
     Private Users As New Dictionary(Of String, String)()
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Users.Add("username1", "password1")
+        Users.Add("admin", "admin")
         Users.Add("username2", "password2")
         Users.Add("username3", "password3")
         Users.Add("username4", "password4")
