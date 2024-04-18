@@ -30,7 +30,8 @@ Public Class Form1
 
             If Users(username) = (password) Then
                 MessageBox.Show("Login Succesfully!")
-
+                AppoitmentForm.Show()
+                Me.Hide()
             Else MessageBox.Show("Incorrect Password")
             End If
 
