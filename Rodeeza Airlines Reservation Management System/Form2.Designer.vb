@@ -27,32 +27,30 @@ Partial Class AppoitmentForm
         PictureBox1 = New PictureBox()
         Label2 = New Label()
         Label3 = New Label()
-        DataGridView1 = New DataGridView()
-        TextBox1 = New TextBox()
+        allRecordsData = New DataGridView()
+        CustomerIDTextBox = New TextBox()
         Label4 = New Label()
         Label5 = New Label()
-        TextBox2 = New TextBox()
-        TextBox3 = New TextBox()
-        DateTimePicker1 = New DateTimePicker()
+        CustomerFirstNameTextBox = New TextBox()
+        CustomerLastNameTextBox = New TextBox()
+        dtbirthday = New DateTimePicker()
         Birthday = New Label()
         Label6 = New Label()
-        Label7 = New Label()
-        TextBox4 = New TextBox()
-        TextBox5 = New TextBox()
-        RadioButton1 = New RadioButton()
-        RadioButton2 = New RadioButton()
+        CustomerGenderLabel = New Label()
+        CustomerAddressTextBox = New TextBox()
+        CustomerEmailTextBox = New TextBox()
+        btnMale = New RadioButton()
+        btFemale = New RadioButton()
         Label8 = New Label()
         TextBox6 = New TextBox()
         Label9 = New Label()
         Label10 = New Label()
-        TextBox7 = New TextBox()
         ComboBox1 = New ComboBox()
         Label11 = New Label()
         Label12 = New Label()
-        TextBox8 = New TextBox()
         ComboBox2 = New ComboBox()
         Label13 = New Label()
-        TextBox9 = New TextBox()
+        CustomerPhoneTextBox = New TextBox()
         Label14 = New Label()
         TextBox10 = New TextBox()
         Button1 = New Button()
@@ -60,8 +58,19 @@ Partial Class AppoitmentForm
         Button3 = New Button()
         Button4 = New Button()
         Button5 = New Button()
+        ComboBox3 = New ComboBox()
+        ComboBox4 = New ComboBox()
+        Customer_ID = New DataGridViewTextBoxColumn()
+        Column1 = New DataGridViewTextBoxColumn()
+        CustomerBirthday = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Address = New DataGridViewTextBoxColumn()
+        email = New DataGridViewTextBoxColumn()
+        phoneNo = New DataGridViewTextBoxColumn()
+        gender = New DataGridViewTextBoxColumn()
+        Customer_FirstName = New DataGridViewTextBoxColumn()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(allRecordsData, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -71,9 +80,9 @@ Partial Class AppoitmentForm
         Label1.ForeColor = Color.White
         Label1.Location = New Point(457, 35)
         Label1.Name = "Label1"
-        Label1.Size = New Size(578, 41)
+        Label1.Size = New Size(481, 33)
         Label1.TabIndex = 0
-        Label1.Text = "Rodeeza Airlines Appoitment System"
+        Label1.Text = "Rodeeza Airlines Appointment System"
         ' 
         ' PictureBox1
         ' 
@@ -91,7 +100,7 @@ Partial Class AppoitmentForm
         Label2.ForeColor = Color.White
         Label2.Location = New Point(50, 219)
         Label2.Name = "Label2"
-        Label2.Size = New Size(131, 24)
+        Label2.Size = New Size(104, 19)
         Label2.TabIndex = 2
         Label2.Text = "Customer I.D:"
         ' 
@@ -101,26 +110,28 @@ Partial Class AppoitmentForm
         Label3.ForeColor = Color.White
         Label3.Location = New Point(50, 301)
         Label3.Name = "Label3"
-        Label3.Size = New Size(114, 24)
+        Label3.Size = New Size(90, 19)
         Label3.TabIndex = 3
         Label3.Text = "First Name:"
         ' 
-        ' DataGridView1
+        ' allRecordsData
         ' 
-        DataGridView1.BackgroundColor = Color.White
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(1042, 211)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.RowHeadersWidth = 51
-        DataGridView1.Size = New Size(489, 526)
-        DataGridView1.TabIndex = 4
+        allRecordsData.AllowUserToOrderColumns = True
+        allRecordsData.BackgroundColor = Color.White
+        allRecordsData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        allRecordsData.Columns.AddRange(New DataGridViewColumn() {Customer_ID, Column1, CustomerBirthday, Column2, Address, email, phoneNo, gender, Customer_FirstName})
+        allRecordsData.Location = New Point(931, 206)
+        allRecordsData.Name = "allRecordsData"
+        allRecordsData.RowHeadersWidth = 51
+        allRecordsData.Size = New Size(600, 526)
+        allRecordsData.TabIndex = 4
         ' 
-        ' TextBox1
+        ' CustomerIDTextBox
         ' 
-        TextBox1.Location = New Point(187, 211)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(250, 32)
-        TextBox1.TabIndex = 5
+        CustomerIDTextBox.Location = New Point(187, 211)
+        CustomerIDTextBox.Name = "CustomerIDTextBox"
+        CustomerIDTextBox.Size = New Size(250, 27)
+        CustomerIDTextBox.TabIndex = 5
         ' 
         ' Label4
         ' 
@@ -128,7 +139,7 @@ Partial Class AppoitmentForm
         Label4.ForeColor = Color.White
         Label4.Location = New Point(50, 379)
         Label4.Name = "Label4"
-        Label4.Size = New Size(113, 24)
+        Label4.Size = New Size(90, 19)
         Label4.TabIndex = 6
         Label4.Text = "Last Name:"
         ' 
@@ -138,30 +149,30 @@ Partial Class AppoitmentForm
         Label5.ForeColor = Color.White
         Label5.Location = New Point(50, 450)
         Label5.Name = "Label5"
-        Label5.Size = New Size(88, 24)
+        Label5.Size = New Size(72, 19)
         Label5.TabIndex = 7
         Label5.Text = "Birthday:"
         ' 
-        ' TextBox2
+        ' CustomerFirstNameTextBox
         ' 
-        TextBox2.Location = New Point(187, 293)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(250, 32)
-        TextBox2.TabIndex = 8
+        CustomerFirstNameTextBox.Location = New Point(187, 293)
+        CustomerFirstNameTextBox.Name = "CustomerFirstNameTextBox"
+        CustomerFirstNameTextBox.Size = New Size(250, 27)
+        CustomerFirstNameTextBox.TabIndex = 8
         ' 
-        ' TextBox3
+        ' CustomerLastNameTextBox
         ' 
-        TextBox3.Location = New Point(187, 371)
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(250, 32)
-        TextBox3.TabIndex = 9
+        CustomerLastNameTextBox.Location = New Point(187, 371)
+        CustomerLastNameTextBox.Name = "CustomerLastNameTextBox"
+        CustomerLastNameTextBox.Size = New Size(250, 27)
+        CustomerLastNameTextBox.TabIndex = 9
         ' 
-        ' DateTimePicker1
+        ' dtbirthday
         ' 
-        DateTimePicker1.Location = New Point(187, 442)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(250, 32)
-        DateTimePicker1.TabIndex = 10
+        dtbirthday.Location = New Point(187, 442)
+        dtbirthday.Name = "dtbirthday"
+        dtbirthday.Size = New Size(250, 27)
+        dtbirthday.TabIndex = 10
         ' 
         ' Birthday
         ' 
@@ -169,7 +180,7 @@ Partial Class AppoitmentForm
         Birthday.ForeColor = Color.White
         Birthday.Location = New Point(50, 516)
         Birthday.Name = "Birthday"
-        Birthday.Size = New Size(88, 24)
+        Birthday.Size = New Size(70, 19)
         Birthday.TabIndex = 11
         Birthday.Text = "Address:"
         ' 
@@ -179,57 +190,57 @@ Partial Class AppoitmentForm
         Label6.ForeColor = Color.White
         Label6.Location = New Point(50, 581)
         Label6.Name = "Label6"
-        Label6.Size = New Size(65, 24)
+        Label6.Size = New Size(53, 19)
         Label6.TabIndex = 12
         Label6.Text = "Email:"
         ' 
-        ' Label7
+        ' CustomerGenderLabel
         ' 
-        Label7.AutoSize = True
-        Label7.ForeColor = Color.White
-        Label7.Location = New Point(50, 713)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(80, 24)
-        Label7.TabIndex = 13
-        Label7.Text = "Gender:"
+        CustomerGenderLabel.AutoSize = True
+        CustomerGenderLabel.ForeColor = Color.White
+        CustomerGenderLabel.Location = New Point(50, 713)
+        CustomerGenderLabel.Name = "CustomerGenderLabel"
+        CustomerGenderLabel.Size = New Size(63, 19)
+        CustomerGenderLabel.TabIndex = 13
+        CustomerGenderLabel.Text = "Gender:"
         ' 
-        ' TextBox4
+        ' CustomerAddressTextBox
         ' 
-        TextBox4.Location = New Point(187, 508)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(250, 32)
-        TextBox4.TabIndex = 14
+        CustomerAddressTextBox.Location = New Point(187, 508)
+        CustomerAddressTextBox.Name = "CustomerAddressTextBox"
+        CustomerAddressTextBox.Size = New Size(250, 27)
+        CustomerAddressTextBox.TabIndex = 14
         ' 
-        ' TextBox5
+        ' CustomerEmailTextBox
         ' 
-        TextBox5.Location = New Point(187, 573)
-        TextBox5.Name = "TextBox5"
-        TextBox5.Size = New Size(250, 32)
-        TextBox5.TabIndex = 15
+        CustomerEmailTextBox.Location = New Point(187, 573)
+        CustomerEmailTextBox.Name = "CustomerEmailTextBox"
+        CustomerEmailTextBox.Size = New Size(250, 27)
+        CustomerEmailTextBox.TabIndex = 15
         ' 
-        ' RadioButton1
+        ' btnMale
         ' 
-        RadioButton1.AutoSize = True
-        RadioButton1.ForeColor = Color.White
-        RadioButton1.Location = New Point(187, 711)
-        RadioButton1.Name = "RadioButton1"
-        RadioButton1.Size = New Size(75, 28)
-        RadioButton1.TabIndex = 16
-        RadioButton1.TabStop = True
-        RadioButton1.Text = "Male"
-        RadioButton1.UseVisualStyleBackColor = True
+        btnMale.AutoSize = True
+        btnMale.ForeColor = Color.White
+        btnMale.Location = New Point(187, 711)
+        btnMale.Name = "btnMale"
+        btnMale.Size = New Size(62, 23)
+        btnMale.TabIndex = 16
+        btnMale.TabStop = True
+        btnMale.Text = "Male"
+        btnMale.UseVisualStyleBackColor = True
         ' 
-        ' RadioButton2
+        ' btFemale
         ' 
-        RadioButton2.AutoSize = True
-        RadioButton2.ForeColor = Color.White
-        RadioButton2.Location = New Point(334, 709)
-        RadioButton2.Name = "RadioButton2"
-        RadioButton2.Size = New Size(98, 28)
-        RadioButton2.TabIndex = 17
-        RadioButton2.TabStop = True
-        RadioButton2.Text = "Female"
-        RadioButton2.UseVisualStyleBackColor = True
+        btFemale.AutoSize = True
+        btFemale.ForeColor = Color.White
+        btFemale.Location = New Point(334, 709)
+        btFemale.Name = "btFemale"
+        btFemale.Size = New Size(79, 23)
+        btFemale.TabIndex = 17
+        btFemale.TabStop = True
+        btFemale.Text = "Female"
+        btFemale.UseVisualStyleBackColor = True
         ' 
         ' Label8
         ' 
@@ -237,7 +248,7 @@ Partial Class AppoitmentForm
         Label8.ForeColor = Color.White
         Label8.Location = New Point(560, 219)
         Label8.Name = "Label8"
-        Label8.Size = New Size(93, 24)
+        Label8.Size = New Size(76, 19)
         Label8.TabIndex = 18
         Label8.Text = "Flight I.D:"
         ' 
@@ -245,7 +256,7 @@ Partial Class AppoitmentForm
         ' 
         TextBox6.Location = New Point(696, 211)
         TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(151, 32)
+        TextBox6.Size = New Size(151, 27)
         TextBox6.TabIndex = 19
         ' 
         ' Label9
@@ -254,7 +265,7 @@ Partial Class AppoitmentForm
         Label9.ForeColor = Color.White
         Label9.Location = New Point(560, 306)
         Label9.Name = "Label9"
-        Label9.Size = New Size(119, 24)
+        Label9.Size = New Size(96, 19)
         Label9.TabIndex = 20
         Label9.Text = "Flight Class:"
         ' 
@@ -264,23 +275,17 @@ Partial Class AppoitmentForm
         Label10.ForeColor = Color.White
         Label10.Location = New Point(560, 379)
         Label10.Name = "Label10"
-        Label10.Size = New Size(66, 24)
+        Label10.Size = New Size(53, 19)
         Label10.TabIndex = 21
         Label10.Text = "Seats:"
-        ' 
-        ' TextBox7
-        ' 
-        TextBox7.Location = New Point(696, 371)
-        TextBox7.Name = "TextBox7"
-        TextBox7.Size = New Size(151, 32)
-        TextBox7.TabIndex = 22
         ' 
         ' ComboBox1
         ' 
         ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"    Economy Class", "    Premium Economy Class", "    Business Class", "    First Class", "    Basic Economy Class", "    Flexible Economy Class", "    Economy Plus Class", "    Premium Business Class", "    Business Suite Class", "    Premium First Class"})
         ComboBox1.Location = New Point(696, 298)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(151, 32)
+        ComboBox1.Size = New Size(151, 27)
         ComboBox1.TabIndex = 23
         ' 
         ' Label11
@@ -289,7 +294,7 @@ Partial Class AppoitmentForm
         Label11.ForeColor = Color.White
         Label11.Location = New Point(560, 450)
         Label11.Name = "Label11"
-        Label11.Size = New Size(117, 24)
+        Label11.Size = New Size(94, 19)
         Label11.TabIndex = 24
         Label11.Text = "Destination:"
         ' 
@@ -299,23 +304,17 @@ Partial Class AppoitmentForm
         Label12.ForeColor = Color.White
         Label12.Location = New Point(560, 516)
         Label12.Name = "Label12"
-        Label12.Size = New Size(58, 24)
+        Label12.Size = New Size(46, 19)
         Label12.TabIndex = 25
         Label12.Text = "Gate:"
-        ' 
-        ' TextBox8
-        ' 
-        TextBox8.Location = New Point(696, 442)
-        TextBox8.Name = "TextBox8"
-        TextBox8.Size = New Size(151, 32)
-        TextBox8.TabIndex = 26
         ' 
         ' ComboBox2
         ' 
         ComboBox2.FormattingEnabled = True
+        ComboBox2.Items.AddRange(New Object() {"Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5"})
         ComboBox2.Location = New Point(696, 508)
         ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(151, 32)
+        ComboBox2.Size = New Size(151, 27)
         ComboBox2.TabIndex = 27
         ' 
         ' Label13
@@ -324,32 +323,32 @@ Partial Class AppoitmentForm
         Label13.ForeColor = Color.White
         Label13.Location = New Point(50, 653)
         Label13.Name = "Label13"
-        Label13.Size = New Size(72, 24)
+        Label13.Size = New Size(58, 19)
         Label13.TabIndex = 28
         Label13.Text = "Phone:"
         ' 
-        ' TextBox9
+        ' CustomerPhoneTextBox
         ' 
-        TextBox9.Location = New Point(187, 645)
-        TextBox9.Name = "TextBox9"
-        TextBox9.Size = New Size(250, 32)
-        TextBox9.TabIndex = 29
+        CustomerPhoneTextBox.Location = New Point(187, 645)
+        CustomerPhoneTextBox.Name = "CustomerPhoneTextBox"
+        CustomerPhoneTextBox.Size = New Size(250, 27)
+        CustomerPhoneTextBox.TabIndex = 29
         ' 
         ' Label14
         ' 
         Label14.AutoSize = True
         Label14.ForeColor = Color.White
-        Label14.Location = New Point(1042, 170)
+        Label14.Location = New Point(931, 170)
         Label14.Name = "Label14"
-        Label14.Size = New Size(164, 24)
+        Label14.Size = New Size(130, 19)
         Label14.TabIndex = 30
         Label14.Text = "View All Records:"
         ' 
         ' TextBox10
         ' 
-        TextBox10.Location = New Point(1224, 162)
+        TextBox10.Location = New Point(1147, 167)
         TextBox10.Name = "TextBox10"
-        TextBox10.Size = New Size(191, 32)
+        TextBox10.Size = New Size(191, 27)
         TextBox10.TabIndex = 31
         ' 
         ' Button1
@@ -363,7 +362,7 @@ Partial Class AppoitmentForm
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(1042, 753)
+        Button2.Location = New Point(931, 753)
         Button2.Name = "Button2"
         Button2.Size = New Size(94, 29)
         Button2.TabIndex = 33
@@ -372,7 +371,7 @@ Partial Class AppoitmentForm
         ' 
         ' Button3
         ' 
-        Button3.Location = New Point(1244, 753)
+        Button3.Location = New Point(1177, 753)
         Button3.Name = "Button3"
         Button3.Size = New Size(94, 29)
         Button3.TabIndex = 34
@@ -397,12 +396,77 @@ Partial Class AppoitmentForm
         Button5.Text = "Submit"
         Button5.UseVisualStyleBackColor = True
         ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Items.AddRange(New Object() {"    23A", "    7C", "    14F", "    31D", "    8B", "    17E", "    29G", "    5A", "    12D", "    30F", "    9C", "    20B", "    3E", "    18H", "    11A", "    25C", "    6F", "    21G", "    10D", "    26B", "    2E", "    15H", "    28A", "    1C", "    16G", "    22D", "    4B", "    19F", "    27A", "    13C", "    24E", "    32H", "    33D", "    34B", "    35F", "    36A", "    37C", "    38E", "    39G", "    40B", "    41D", "    42F", "    43A", "    44C", "    45E", "    46G", "    47B", "    48D", "    49F", "    50A", "    51C", "    52E", "    53G", "    54B", "    55D", "    56F", "    57A", "    58C", "    59E", "    60G", "    61B", "    61D", "    63F", "    64A", "    65C", "    66E", "    67G", "    68B", "    69D", "    70F", "    71A", "    71C", "    73E", "    74G", "    75B", "    75D", "    77F", "    78A", "    79C", "    80E", "    80G", "    81B", "    81D", "    84F", "    85A", "    85C", "    87E", "    88G", "    89B", "    89D", "    91F", "    92A", "    92C", "    94E", "    95G", "    96B", "    96D", "    98F", "    99A", "    100C"})
+        ComboBox3.Location = New Point(696, 371)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(151, 27)
+        ComboBox3.TabIndex = 37
+        ' 
+        ' ComboBox4
+        ' 
+        ComboBox4.FormattingEnabled = True
+        ComboBox4.Items.AddRange(New Object() {"    Manila", "    Boracay Island", "    Palawan", "    Cebu City", "    Baguio City", "    Davao City", "    Bohol", "    Siargao Island", "    Tagaytay City", "    Vigan", "    Batanes", "    Camiguin Island", "    Sagada", "    Puerto Galera", "    Coron", "    Banaue Rice Terraces", "    Dumaguete City", "    Subic Bay", "    Pampanga", "    Batangas City", "    Legazpi City", "    Zamboanga City", "    Iloilo City", "    Bacolod City", "    Roxas City", "    Antique", "    Catanduanes", "    Siquijor Island", "    Surigao City", "    Butuan City", "    Marinduque", "    Bicol Region", "    Calbayog City", "    Ormoc City", "    Tacloban City", "    Leyte", "    Samar", "    Tuguegarao City", "    Laoag City", "    Vigan", "    Baler", "    San Juan, La Union", "    San Fernando, La Union", "    Bataan", "    Nueva Ecija", "    Isabela", "    Pangasinan", "    Tarlac City", "    Pampanga", "    Zambales", "    Masbate", "    Sorsogon", "    Albay", "    Camarines Sur", "    Camarines Norte", "    Quezon Province", "    Batangas", "    Cavite", "    Laguna", "    Rizal Province", "    Bulacan", "    Nueva Vizcaya", "    Quirino", "    Aurora", "    Benguet", "    Ifugao", "    Mountain Province", "    Kalinga", "    Apayao", "    Abra", "    Ilocos Norte", "    Ilocos Sur", "    La Union", "    Pangasinan", "    Cagayan", "    Isabela", "    Quirino", "    Aurora", "    Nueva Ecija", "    Tarlac", "    Pampanga", "    Bulacan", "    Metro Manila", "    Rizal", "    Cavite", "    Laguna", "    Batangas", "    Quezon", "    Marinduque", "    Occidental Mindoro", "    Oriental Mindoro", "    Romblon", "    Palawan", "    Catanduanes", "    Albay", "    Camarines Norte", "    Camarines Sur", "    Sorsogon", "    Masbate", "    Tawi-Tawi"})
+        ComboBox4.Location = New Point(696, 442)
+        ComboBox4.Name = "ComboBox4"
+        ComboBox4.Size = New Size(151, 27)
+        ComboBox4.TabIndex = 38
+        ' 
+        ' Customer_ID
+        ' 
+        Customer_ID.HeaderText = "Customer I.D"
+        Customer_ID.Name = "Customer_ID"
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "Last Name"
+        Column1.Name = "Column1"
+        ' 
+        ' CustomerBirthday
+        ' 
+        CustomerBirthday.HeaderText = "Birthday"
+        CustomerBirthday.Name = "CustomerBirthday"
+        ' 
+        ' Column2
+        ' 
+        Column2.HeaderText = "Column2"
+        Column2.Name = "Column2"
+        ' 
+        ' Address
+        ' 
+        Address.HeaderText = "Address"
+        Address.Name = "Address"
+        ' 
+        ' email
+        ' 
+        email.HeaderText = "Email"
+        email.Name = "email"
+        ' 
+        ' phoneNo
+        ' 
+        phoneNo.HeaderText = "Phone"
+        phoneNo.Name = "phoneNo"
+        ' 
+        ' gender
+        ' 
+        gender.HeaderText = "Gender"
+        gender.Name = "gender"
+        ' 
+        ' Customer_FirstName
+        ' 
+        Customer_FirstName.HeaderText = "First Name"
+        Customer_FirstName.Name = "Customer_FirstName"
+        ' 
         ' AppoitmentForm
         ' 
-        AutoScaleDimensions = New SizeF(11F, 24F)
+        AutoScaleDimensions = New SizeF(9F, 19F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(24), CByte(117), CByte(186))
         ClientSize = New Size(1565, 806)
+        Controls.Add(ComboBox4)
+        Controls.Add(ComboBox3)
         Controls.Add(Button5)
         Controls.Add(Button4)
         Controls.Add(Button3)
@@ -410,32 +474,30 @@ Partial Class AppoitmentForm
         Controls.Add(Button1)
         Controls.Add(TextBox10)
         Controls.Add(Label14)
-        Controls.Add(TextBox9)
+        Controls.Add(CustomerPhoneTextBox)
         Controls.Add(Label13)
         Controls.Add(ComboBox2)
-        Controls.Add(TextBox8)
         Controls.Add(Label12)
         Controls.Add(Label11)
         Controls.Add(ComboBox1)
-        Controls.Add(TextBox7)
         Controls.Add(Label10)
         Controls.Add(Label9)
         Controls.Add(TextBox6)
         Controls.Add(Label8)
-        Controls.Add(RadioButton2)
-        Controls.Add(RadioButton1)
-        Controls.Add(TextBox5)
-        Controls.Add(TextBox4)
-        Controls.Add(Label7)
+        Controls.Add(btFemale)
+        Controls.Add(btnMale)
+        Controls.Add(CustomerEmailTextBox)
+        Controls.Add(CustomerAddressTextBox)
+        Controls.Add(CustomerGenderLabel)
         Controls.Add(Label6)
         Controls.Add(Birthday)
-        Controls.Add(DateTimePicker1)
-        Controls.Add(TextBox3)
-        Controls.Add(TextBox2)
+        Controls.Add(dtbirthday)
+        Controls.Add(CustomerLastNameTextBox)
+        Controls.Add(CustomerFirstNameTextBox)
         Controls.Add(Label5)
         Controls.Add(Label4)
-        Controls.Add(TextBox1)
-        Controls.Add(DataGridView1)
+        Controls.Add(CustomerIDTextBox)
+        Controls.Add(allRecordsData)
         Controls.Add(Label3)
         Controls.Add(Label2)
         Controls.Add(PictureBox1)
@@ -445,7 +507,7 @@ Partial Class AppoitmentForm
         Name = "AppoitmentForm"
         Text = "Appoitment"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(allRecordsData, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -454,32 +516,30 @@ Partial Class AppoitmentForm
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents allRecordsData As DataGridView
+    Friend WithEvents CustomerIDTextBox As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents CustomerFirstNameTextBox As TextBox
+    Friend WithEvents CustomerLastNameTextBox As TextBox
+    Friend WithEvents dtbirthday As DateTimePicker
     Friend WithEvents Birthday As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents CustomerGenderLabel As Label
+    Friend WithEvents CustomerAddressTextBox As TextBox
+    Friend WithEvents CustomerEmailTextBox As TextBox
+    Friend WithEvents btnMale As RadioButton
+    Friend WithEvents btFemale As RadioButton
     Friend WithEvents Label8 As Label
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents TextBox7 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents TextBox8 As TextBox
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents CustomerPhoneTextBox As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents TextBox10 As TextBox
     Friend WithEvents Button1 As Button
@@ -487,4 +547,15 @@ Partial Class AppoitmentForm
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents Customer_ID As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents CustomerBirthday As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Address As DataGridViewTextBoxColumn
+    Friend WithEvents email As DataGridViewTextBoxColumn
+    Friend WithEvents phoneNo As DataGridViewTextBoxColumn
+    Friend WithEvents gender As DataGridViewTextBoxColumn
+    Friend WithEvents Customer_FirstName As DataGridViewTextBoxColumn
 End Class
