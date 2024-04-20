@@ -28,7 +28,7 @@
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles PrintBtn.Click
 
     End Sub
 
@@ -37,14 +37,50 @@
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Me.allRecordsData.Rows.Add(CustomerIDTextBox.Text, CustomerFirstNameTextBox.Text, CustomerLastNameTextBox.Text,
-                                   dtbirthday.Text, CustomerAddressTextBox.Text, CustomerEmailTextBox.Text,
-                                   CustomerPhoneTextBox.Text, CustomerGenderLabel.Text)
 
+        If CustomerIDTextBox.Text = "" OrElse CustomerFirstNameTextBox.Text = "" OrElse
+       CustomerLastNameTextBox.Text = "" OrElse dtbirthday.Text = "" OrElse
+       CustomerAddressTextBox.Text = "" OrElse CustomerEmailTextBox.Text = "" OrElse
+       CustomerPhoneTextBox.Text = "" OrElse CustomerGenderLabel.Text = "" Then
+
+            MessageBox.Show("Please fill in all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit the method if any required field is empty
+        End If
+
+        ' Check if CustomerID is a valid number
+        Dim customerId As Integer
+        If Not Integer.TryParse(CustomerIDTextBox.Text, customerId) Then
+            MessageBox.Show("CustomerID must be a valid number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return ' Exit the method if CustomerID is not a valid number
+        End If
+
+        ' Add the data to the allRecordsData table
+        Me.allRecordsData.Rows.Add(CustomerIDTextBox.Text, CustomerFirstNameTextBox.Text, CustomerLastNameTextBox.Text,
+                               dtbirthday.Text, CustomerAddressTextBox.Text, CustomerEmailTextBox.Text,
+                               CustomerPhoneTextBox.Text, CustomerGenderLabel.Text)
+
+        ' Optionally, you can clear the textboxes after adding the data
+        ClearTextBoxes()
+    End Sub
+
+    Private Sub ClearTextBoxes()
+        ' Clear all textboxes
+        CustomerIDTextBox.Text = ""
+        CustomerFirstNameTextBox.Text = ""
+        CustomerLastNameTextBox.Text = ""
+        dtbirthday.Text = ""
+        CustomerAddressTextBox.Text = ""
+        CustomerEmailTextBox.Text = ""
+        CustomerPhoneTextBox.Text = ""
+        CustomerGenderLabel.Text = ""
+    End Sub
+
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles allRecordsData.CellContentClick
 
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles allRecordsData.CellContentClick
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
 End Class
