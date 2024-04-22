@@ -28,6 +28,15 @@ Partial Class AppoitmentForm
         Label2 = New Label()
         Label3 = New Label()
         allRecordsData = New DataGridView()
+        Customer_ID = New DataGridViewTextBoxColumn()
+        CustomerFlightID = New DataGridViewTextBoxColumn()
+        CustomerFirstName = New DataGridViewTextBoxColumn()
+        Column1 = New DataGridViewTextBoxColumn()
+        CustomerBirthday = New DataGridViewTextBoxColumn()
+        Address = New DataGridViewTextBoxColumn()
+        email = New DataGridViewTextBoxColumn()
+        phoneNo = New DataGridViewTextBoxColumn()
+        gender = New DataGridViewTextBoxColumn()
         CustomerIDTextBox = New TextBox()
         Label4 = New Label()
         Label5 = New Label()
@@ -42,13 +51,13 @@ Partial Class AppoitmentForm
         btnMale = New RadioButton()
         btFemale = New RadioButton()
         Label8 = New Label()
-        TextBox6 = New TextBox()
+        FlightIDTxtBox = New TextBox()
         Label9 = New Label()
         Label10 = New Label()
-        ComboBox1 = New ComboBox()
+        FlightClassCombo = New ComboBox()
         Label11 = New Label()
         Label12 = New Label()
-        ComboBox2 = New ComboBox()
+        GateCombo = New ComboBox()
         Label13 = New Label()
         CustomerPhoneTextBox = New TextBox()
         Label14 = New Label()
@@ -58,16 +67,8 @@ Partial Class AppoitmentForm
         PrintBtn = New Button()
         DeleteBtn = New Button()
         Button5 = New Button()
-        ComboBox3 = New ComboBox()
-        ComboBox4 = New ComboBox()
-        Customer_ID = New DataGridViewTextBoxColumn()
-        CustomerFirstName = New DataGridViewTextBoxColumn()
-        Column1 = New DataGridViewTextBoxColumn()
-        CustomerBirthday = New DataGridViewTextBoxColumn()
-        Address = New DataGridViewTextBoxColumn()
-        email = New DataGridViewTextBoxColumn()
-        phoneNo = New DataGridViewTextBoxColumn()
-        gender = New DataGridViewTextBoxColumn()
+        SeatsCombo = New ComboBox()
+        DestinationCombo = New ComboBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(allRecordsData, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -118,12 +119,75 @@ Partial Class AppoitmentForm
         allRecordsData.AllowUserToOrderColumns = True
         allRecordsData.BackgroundColor = Color.White
         allRecordsData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        allRecordsData.Columns.AddRange(New DataGridViewColumn() {Customer_ID, CustomerFirstName, Column1, CustomerBirthday, Address, email, phoneNo, gender})
+        allRecordsData.Columns.AddRange(New DataGridViewColumn() {Customer_ID, CustomerFlightID, CustomerFirstName, Column1, CustomerBirthday, Address, email, phoneNo, gender})
         allRecordsData.Location = New Point(931, 206)
         allRecordsData.Name = "allRecordsData"
         allRecordsData.RowHeadersWidth = 51
         allRecordsData.Size = New Size(600, 526)
         allRecordsData.TabIndex = 4
+        ' 
+        ' Customer_ID
+        ' 
+        Customer_ID.HeaderText = "Customer I.D"
+        Customer_ID.MinimumWidth = 6
+        Customer_ID.Name = "Customer_ID"
+        Customer_ID.Width = 125
+        ' 
+        ' CustomerFlightID
+        ' 
+        CustomerFlightID.HeaderText = "Flight I.D"
+        CustomerFlightID.MinimumWidth = 6
+        CustomerFlightID.Name = "CustomerFlightID"
+        CustomerFlightID.Width = 125
+        ' 
+        ' CustomerFirstName
+        ' 
+        CustomerFirstName.HeaderText = "First Name"
+        CustomerFirstName.MinimumWidth = 6
+        CustomerFirstName.Name = "CustomerFirstName"
+        CustomerFirstName.Width = 125
+        ' 
+        ' Column1
+        ' 
+        Column1.HeaderText = "Last Name"
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.Width = 125
+        ' 
+        ' CustomerBirthday
+        ' 
+        CustomerBirthday.HeaderText = "Birthday"
+        CustomerBirthday.MinimumWidth = 6
+        CustomerBirthday.Name = "CustomerBirthday"
+        CustomerBirthday.Width = 125
+        ' 
+        ' Address
+        ' 
+        Address.HeaderText = "Address"
+        Address.MinimumWidth = 6
+        Address.Name = "Address"
+        Address.Width = 125
+        ' 
+        ' email
+        ' 
+        email.HeaderText = "Email"
+        email.MinimumWidth = 6
+        email.Name = "email"
+        email.Width = 125
+        ' 
+        ' phoneNo
+        ' 
+        phoneNo.HeaderText = "Phone"
+        phoneNo.MinimumWidth = 6
+        phoneNo.Name = "phoneNo"
+        phoneNo.Width = 125
+        ' 
+        ' gender
+        ' 
+        gender.HeaderText = "Gender"
+        gender.MinimumWidth = 6
+        gender.Name = "gender"
+        gender.Width = 125
         ' 
         ' CustomerIDTextBox
         ' 
@@ -251,12 +315,12 @@ Partial Class AppoitmentForm
         Label8.TabIndex = 18
         Label8.Text = "Flight I.D:"
         ' 
-        ' TextBox6
+        ' FlightIDTxtBox
         ' 
-        TextBox6.Location = New Point(696, 211)
-        TextBox6.Name = "TextBox6"
-        TextBox6.Size = New Size(151, 32)
-        TextBox6.TabIndex = 19
+        FlightIDTxtBox.Location = New Point(696, 211)
+        FlightIDTxtBox.Name = "FlightIDTxtBox"
+        FlightIDTxtBox.Size = New Size(151, 32)
+        FlightIDTxtBox.TabIndex = 19
         ' 
         ' Label9
         ' 
@@ -278,14 +342,14 @@ Partial Class AppoitmentForm
         Label10.TabIndex = 21
         Label10.Text = "Seats:"
         ' 
-        ' ComboBox1
+        ' FlightClassCombo
         ' 
-        ComboBox1.FormattingEnabled = True
-        ComboBox1.Items.AddRange(New Object() {"    Economy Class", "    Premium Economy Class", "    Business Class", "    First Class", "    Basic Economy Class", "    Flexible Economy Class", "    Economy Plus Class", "    Premium Business Class", "    Business Suite Class", "    Premium First Class"})
-        ComboBox1.Location = New Point(696, 298)
-        ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(151, 32)
-        ComboBox1.TabIndex = 23
+        FlightClassCombo.FormattingEnabled = True
+        FlightClassCombo.Items.AddRange(New Object() {"    Economy Class", "    Premium Economy Class", "    Business Class", "    First Class", "    Basic Economy Class", "    Flexible Economy Class", "    Economy Plus Class", "    Premium Business Class", "    Business Suite Class", "    Premium First Class"})
+        FlightClassCombo.Location = New Point(696, 298)
+        FlightClassCombo.Name = "FlightClassCombo"
+        FlightClassCombo.Size = New Size(151, 32)
+        FlightClassCombo.TabIndex = 23
         ' 
         ' Label11
         ' 
@@ -307,14 +371,14 @@ Partial Class AppoitmentForm
         Label12.TabIndex = 25
         Label12.Text = "Gate:"
         ' 
-        ' ComboBox2
+        ' GateCombo
         ' 
-        ComboBox2.FormattingEnabled = True
-        ComboBox2.Items.AddRange(New Object() {"Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5"})
-        ComboBox2.Location = New Point(696, 508)
-        ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(151, 32)
-        ComboBox2.TabIndex = 27
+        GateCombo.FormattingEnabled = True
+        GateCombo.Items.AddRange(New Object() {"Gate 1", "Gate 2", "Gate 3", "Gate 4", "Gate 5"})
+        GateCombo.Location = New Point(696, 508)
+        GateCombo.Name = "GateCombo"
+        GateCombo.Size = New Size(151, 32)
+        GateCombo.TabIndex = 27
         ' 
         ' Label13
         ' 
@@ -339,13 +403,13 @@ Partial Class AppoitmentForm
         Label14.ForeColor = Color.White
         Label14.Location = New Point(931, 170)
         Label14.Name = "Label14"
-        Label14.Size = New Size(164, 24)
+        Label14.Size = New Size(77, 24)
         Label14.TabIndex = 30
-        Label14.Text = "View All Records:"
+        Label14.Text = "Search:"
         ' 
         ' TextBox10
         ' 
-        TextBox10.Location = New Point(1147, 167)
+        TextBox10.Location = New Point(1108, 164)
         TextBox10.Name = "TextBox10"
         TextBox10.Size = New Size(191, 32)
         TextBox10.TabIndex = 31
@@ -356,7 +420,7 @@ Partial Class AppoitmentForm
         Button1.Name = "Button1"
         Button1.Size = New Size(94, 30)
         Button1.TabIndex = 32
-        Button1.Text = "Search"
+        Button1.Text = "View All"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' EditBtn
@@ -395,88 +459,32 @@ Partial Class AppoitmentForm
         Button5.Text = "Submit"
         Button5.UseVisualStyleBackColor = True
         ' 
-        ' ComboBox3
+        ' SeatsCombo
         ' 
-        ComboBox3.FormattingEnabled = True
-        ComboBox3.Items.AddRange(New Object() {"    23A", "    7C", "    14F", "    31D", "    8B", "    17E", "    29G", "    5A", "    12D", "    30F", "    9C", "    20B", "    3E", "    18H", "    11A", "    25C", "    6F", "    21G", "    10D", "    26B", "    2E", "    15H", "    28A", "    1C", "    16G", "    22D", "    4B", "    19F", "    27A", "    13C", "    24E", "    32H", "    33D", "    34B", "    35F", "    36A", "    37C", "    38E", "    39G", "    40B", "    41D", "    42F", "    43A", "    44C", "    45E", "    46G", "    47B", "    48D", "    49F", "    50A", "    51C", "    52E", "    53G", "    54B", "    55D", "    56F", "    57A", "    58C", "    59E", "    60G", "    61B", "    61D", "    63F", "    64A", "    65C", "    66E", "    67G", "    68B", "    69D", "    70F", "    71A", "    71C", "    73E", "    74G", "    75B", "    75D", "    77F", "    78A", "    79C", "    80E", "    80G", "    81B", "    81D", "    84F", "    85A", "    85C", "    87E", "    88G", "    89B", "    89D", "    91F", "    92A", "    92C", "    94E", "    95G", "    96B", "    96D", "    98F", "    99A", "    100C"})
-        ComboBox3.Location = New Point(696, 371)
-        ComboBox3.Name = "ComboBox3"
-        ComboBox3.Size = New Size(151, 32)
-        ComboBox3.TabIndex = 37
+        SeatsCombo.FormattingEnabled = True
+        SeatsCombo.Items.AddRange(New Object() {"    23A", "    7C", "    14F", "    31D", "    8B", "    17E", "    29G", "    5A", "    12D", "    30F", "    9C", "    20B", "    3E", "    18H", "    11A", "    25C", "    6F", "    21G", "    10D", "    26B", "    2E", "    15H", "    28A", "    1C", "    16G", "    22D", "    4B", "    19F", "    27A", "    13C", "    24E", "    32H", "    33D", "    34B", "    35F", "    36A", "    37C", "    38E", "    39G", "    40B", "    41D", "    42F", "    43A", "    44C", "    45E", "    46G", "    47B", "    48D", "    49F", "    50A", "    51C", "    52E", "    53G", "    54B", "    55D", "    56F", "    57A", "    58C", "    59E", "    60G", "    61B", "    61D", "    63F", "    64A", "    65C", "    66E", "    67G", "    68B", "    69D", "    70F", "    71A", "    71C", "    73E", "    74G", "    75B", "    75D", "    77F", "    78A", "    79C", "    80E", "    80G", "    81B", "    81D", "    84F", "    85A", "    85C", "    87E", "    88G", "    89B", "    89D", "    91F", "    92A", "    92C", "    94E", "    95G", "    96B", "    96D", "    98F", "    99A", "    100C"})
+        SeatsCombo.Location = New Point(696, 371)
+        SeatsCombo.Name = "SeatsCombo"
+        SeatsCombo.Size = New Size(151, 32)
+        SeatsCombo.TabIndex = 37
         ' 
-        ' ComboBox4
+        ' DestinationCombo
         ' 
-        ComboBox4.FormattingEnabled = True
-        ComboBox4.Items.AddRange(New Object() {"    Manila", "    Boracay Island", "    Palawan", "    Cebu City", "    Baguio City", "    Davao City", "    Bohol", "    Siargao Island", "    Tagaytay City", "    Vigan", "    Batanes", "    Camiguin Island", "    Sagada", "    Puerto Galera", "    Coron", "    Banaue Rice Terraces", "    Dumaguete City", "    Subic Bay", "    Pampanga", "    Batangas City", "    Legazpi City", "    Zamboanga City", "    Iloilo City", "    Bacolod City", "    Roxas City", "    Antique", "    Catanduanes", "    Siquijor Island", "    Surigao City", "    Butuan City", "    Marinduque", "    Bicol Region", "    Calbayog City", "    Ormoc City", "    Tacloban City", "    Leyte", "    Samar", "    Tuguegarao City", "    Laoag City", "    Vigan", "    Baler", "    San Juan, La Union", "    San Fernando, La Union", "    Bataan", "    Nueva Ecija", "    Isabela", "    Pangasinan", "    Tarlac City", "    Pampanga", "    Zambales", "    Masbate", "    Sorsogon", "    Albay", "    Camarines Sur", "    Camarines Norte", "    Quezon Province", "    Batangas", "    Cavite", "    Laguna", "    Rizal Province", "    Bulacan", "    Nueva Vizcaya", "    Quirino", "    Aurora", "    Benguet", "    Ifugao", "    Mountain Province", "    Kalinga", "    Apayao", "    Abra", "    Ilocos Norte", "    Ilocos Sur", "    La Union", "    Pangasinan", "    Cagayan", "    Isabela", "    Quirino", "    Aurora", "    Nueva Ecija", "    Tarlac", "    Pampanga", "    Bulacan", "    Metro Manila", "    Rizal", "    Cavite", "    Laguna", "    Batangas", "    Quezon", "    Marinduque", "    Occidental Mindoro", "    Oriental Mindoro", "    Romblon", "    Palawan", "    Catanduanes", "    Albay", "    Camarines Norte", "    Camarines Sur", "    Sorsogon", "    Masbate", "    Tawi-Tawi"})
-        ComboBox4.Location = New Point(696, 442)
-        ComboBox4.Name = "ComboBox4"
-        ComboBox4.Size = New Size(151, 32)
-        ComboBox4.TabIndex = 38
-        ' 
-        ' Customer_ID
-        ' 
-        Customer_ID.HeaderText = "Customer I.D"
-        Customer_ID.MinimumWidth = 6
-        Customer_ID.Name = "Customer_ID"
-        Customer_ID.Width = 125
-        ' 
-        ' CustomerFirstName
-        ' 
-        CustomerFirstName.HeaderText = "First Name"
-        CustomerFirstName.MinimumWidth = 6
-        CustomerFirstName.Name = "CustomerFirstName"
-        CustomerFirstName.Width = 125
-        ' 
-        ' Column1
-        ' 
-        Column1.HeaderText = "Last Name"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        Column1.Width = 125
-        ' 
-        ' CustomerBirthday
-        ' 
-        CustomerBirthday.HeaderText = "Birthday"
-        CustomerBirthday.MinimumWidth = 6
-        CustomerBirthday.Name = "CustomerBirthday"
-        CustomerBirthday.Width = 125
-        ' 
-        ' Address
-        ' 
-        Address.HeaderText = "Address"
-        Address.MinimumWidth = 6
-        Address.Name = "Address"
-        Address.Width = 125
-        ' 
-        ' email
-        ' 
-        email.HeaderText = "Email"
-        email.MinimumWidth = 6
-        email.Name = "email"
-        email.Width = 125
-        ' 
-        ' phoneNo
-        ' 
-        phoneNo.HeaderText = "Phone"
-        phoneNo.MinimumWidth = 6
-        phoneNo.Name = "phoneNo"
-        phoneNo.Width = 125
-        ' 
-        ' gender
-        ' 
-        gender.HeaderText = "Gender"
-        gender.MinimumWidth = 6
-        gender.Name = "gender"
-        gender.Width = 125
+        DestinationCombo.FormattingEnabled = True
+        DestinationCombo.Items.AddRange(New Object() {"    Manila", "    Boracay Island", "    Palawan", "    Cebu City", "    Baguio City", "    Davao City", "    Bohol", "    Siargao Island", "    Tagaytay City", "    Vigan", "    Batanes", "    Camiguin Island", "    Sagada", "    Puerto Galera", "    Coron", "    Banaue Rice Terraces", "    Dumaguete City", "    Subic Bay", "    Pampanga", "    Batangas City", "    Legazpi City", "    Zamboanga City", "    Iloilo City", "    Bacolod City", "    Roxas City", "    Antique", "    Catanduanes", "    Siquijor Island", "    Surigao City", "    Butuan City", "    Marinduque", "    Bicol Region", "    Calbayog City", "    Ormoc City", "    Tacloban City", "    Leyte", "    Samar", "    Tuguegarao City", "    Laoag City", "    Vigan", "    Baler", "    San Juan, La Union", "    San Fernando, La Union", "    Bataan", "    Nueva Ecija", "    Isabela", "    Pangasinan", "    Tarlac City", "    Pampanga", "    Zambales", "    Masbate", "    Sorsogon", "    Albay", "    Camarines Sur", "    Camarines Norte", "    Quezon Province", "    Batangas", "    Cavite", "    Laguna", "    Rizal Province", "    Bulacan", "    Nueva Vizcaya", "    Quirino", "    Aurora", "    Benguet", "    Ifugao", "    Mountain Province", "    Kalinga", "    Apayao", "    Abra", "    Ilocos Norte", "    Ilocos Sur", "    La Union", "    Pangasinan", "    Cagayan", "    Isabela", "    Quirino", "    Aurora", "    Nueva Ecija", "    Tarlac", "    Pampanga", "    Bulacan", "    Metro Manila", "    Rizal", "    Cavite", "    Laguna", "    Batangas", "    Quezon", "    Marinduque", "    Occidental Mindoro", "    Oriental Mindoro", "    Romblon", "    Palawan", "    Catanduanes", "    Albay", "    Camarines Norte", "    Camarines Sur", "    Sorsogon", "    Masbate", "    Tawi-Tawi"})
+        DestinationCombo.Location = New Point(696, 442)
+        DestinationCombo.Name = "DestinationCombo"
+        DestinationCombo.Size = New Size(151, 32)
+        DestinationCombo.TabIndex = 38
         ' 
         ' AppoitmentForm
         ' 
-        AutoScaleDimensions = New SizeF(11.0F, 24.0F)
+        AutoScaleDimensions = New SizeF(11F, 24F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(24), CByte(117), CByte(186))
         ClientSize = New Size(1565, 806)
-        Controls.Add(ComboBox4)
-        Controls.Add(ComboBox3)
+        Controls.Add(DestinationCombo)
+        Controls.Add(SeatsCombo)
         Controls.Add(Button5)
         Controls.Add(DeleteBtn)
         Controls.Add(PrintBtn)
@@ -486,13 +494,13 @@ Partial Class AppoitmentForm
         Controls.Add(Label14)
         Controls.Add(CustomerPhoneTextBox)
         Controls.Add(Label13)
-        Controls.Add(ComboBox2)
+        Controls.Add(GateCombo)
         Controls.Add(Label12)
         Controls.Add(Label11)
-        Controls.Add(ComboBox1)
+        Controls.Add(FlightClassCombo)
         Controls.Add(Label10)
         Controls.Add(Label9)
-        Controls.Add(TextBox6)
+        Controls.Add(FlightIDTxtBox)
         Controls.Add(Label8)
         Controls.Add(btFemale)
         Controls.Add(btnMale)
@@ -512,7 +520,7 @@ Partial Class AppoitmentForm
         Controls.Add(Label2)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
-        Font = New Font("Roboto", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Font = New Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Margin = New Padding(4)
         Name = "AppoitmentForm"
         Text = "Appoitment"
@@ -541,13 +549,13 @@ Partial Class AppoitmentForm
     Friend WithEvents btnMale As RadioButton
     Friend WithEvents btFemale As RadioButton
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents FlightIDTxtBox As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents FlightClassCombo As ComboBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents GateCombo As ComboBox
     Friend WithEvents Label13 As Label
     Friend WithEvents CustomerPhoneTextBox As TextBox
     Friend WithEvents Label14 As Label
@@ -557,9 +565,10 @@ Partial Class AppoitmentForm
     Friend WithEvents PrintBtn As Button
     Friend WithEvents DeleteBtn As Button
     Friend WithEvents Button5 As Button
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents SeatsCombo As ComboBox
+    Friend WithEvents DestinationCombo As ComboBox
     Friend WithEvents Customer_ID As DataGridViewTextBoxColumn
+    Friend WithEvents CustomerFlightID As DataGridViewTextBoxColumn
     Friend WithEvents CustomerFirstName As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents CustomerBirthday As DataGridViewTextBoxColumn
