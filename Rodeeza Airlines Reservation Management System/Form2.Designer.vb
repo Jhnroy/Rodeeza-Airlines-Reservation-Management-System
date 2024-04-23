@@ -37,6 +37,10 @@ Partial Class AppoitmentForm
         email = New DataGridViewTextBoxColumn()
         phoneNo = New DataGridViewTextBoxColumn()
         gender = New DataGridViewTextBoxColumn()
+        FlightClass = New DataGridViewTextBoxColumn()
+        Seats = New DataGridViewTextBoxColumn()
+        Destination = New DataGridViewTextBoxColumn()
+        Gate = New DataGridViewTextBoxColumn()
         CustomerIDTextBox = New TextBox()
         Label4 = New Label()
         Label5 = New Label()
@@ -60,8 +64,7 @@ Partial Class AppoitmentForm
         GateCombo = New ComboBox()
         Label13 = New Label()
         CustomerPhoneTextBox = New TextBox()
-        Label14 = New Label()
-        TextBox10 = New TextBox()
+        SearchTxtBox = New TextBox()
         Button1 = New Button()
         EditBtn = New Button()
         PrintBtn = New Button()
@@ -69,6 +72,7 @@ Partial Class AppoitmentForm
         Button5 = New Button()
         SeatsCombo = New ComboBox()
         DestinationCombo = New ComboBox()
+        SearchBtn = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(allRecordsData, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -78,7 +82,7 @@ Partial Class AppoitmentForm
         Label1.AutoSize = True
         Label1.Font = New Font("Roboto", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.White
-        Label1.Location = New Point(457, 35)
+        Label1.Location = New Point(674, 40)
         Label1.Name = "Label1"
         Label1.Size = New Size(597, 41)
         Label1.TabIndex = 0
@@ -119,11 +123,11 @@ Partial Class AppoitmentForm
         allRecordsData.AllowUserToOrderColumns = True
         allRecordsData.BackgroundColor = Color.White
         allRecordsData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        allRecordsData.Columns.AddRange(New DataGridViewColumn() {Customer_ID, CustomerFlightID, CustomerFirstName, Column1, CustomerBirthday, Address, email, phoneNo, gender})
+        allRecordsData.Columns.AddRange(New DataGridViewColumn() {Customer_ID, CustomerFlightID, CustomerFirstName, Column1, CustomerBirthday, Address, email, phoneNo, gender, FlightClass, Seats, Destination, Gate})
         allRecordsData.Location = New Point(931, 206)
         allRecordsData.Name = "allRecordsData"
         allRecordsData.RowHeadersWidth = 51
-        allRecordsData.Size = New Size(600, 526)
+        allRecordsData.Size = New Size(929, 526)
         allRecordsData.TabIndex = 4
         ' 
         ' Customer_ID
@@ -188,6 +192,34 @@ Partial Class AppoitmentForm
         gender.MinimumWidth = 6
         gender.Name = "gender"
         gender.Width = 125
+        ' 
+        ' FlightClass
+        ' 
+        FlightClass.HeaderText = "Flight Class"
+        FlightClass.MinimumWidth = 6
+        FlightClass.Name = "FlightClass"
+        FlightClass.Width = 125
+        ' 
+        ' Seats
+        ' 
+        Seats.HeaderText = "Seat No."
+        Seats.MinimumWidth = 6
+        Seats.Name = "Seats"
+        Seats.Width = 125
+        ' 
+        ' Destination
+        ' 
+        Destination.HeaderText = "Destination"
+        Destination.MinimumWidth = 6
+        Destination.Name = "Destination"
+        Destination.Width = 125
+        ' 
+        ' Gate
+        ' 
+        Gate.HeaderText = "Gate"
+        Gate.MinimumWidth = 6
+        Gate.Name = "Gate"
+        Gate.Width = 125
         ' 
         ' CustomerIDTextBox
         ' 
@@ -397,26 +429,19 @@ Partial Class AppoitmentForm
         CustomerPhoneTextBox.Size = New Size(250, 32)
         CustomerPhoneTextBox.TabIndex = 29
         ' 
-        ' Label14
+        ' SearchTxtBox
         ' 
-        Label14.AutoSize = True
-        Label14.ForeColor = Color.White
-        Label14.Location = New Point(931, 170)
-        Label14.Name = "Label14"
-        Label14.Size = New Size(77, 24)
-        Label14.TabIndex = 30
-        Label14.Text = "Search:"
-        ' 
-        ' TextBox10
-        ' 
-        TextBox10.Location = New Point(1108, 164)
-        TextBox10.Name = "TextBox10"
-        TextBox10.Size = New Size(191, 32)
-        TextBox10.TabIndex = 31
+        SearchTxtBox.AutoCompleteMode = AutoCompleteMode.Suggest
+        SearchTxtBox.Location = New Point(931, 161)
+        SearchTxtBox.Name = "SearchTxtBox"
+        SearchTxtBox.PlaceholderText = "Search Here..."
+        SearchTxtBox.ScrollBars = ScrollBars.Horizontal
+        SearchTxtBox.Size = New Size(370, 32)
+        SearchTxtBox.TabIndex = 31
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(1437, 164)
+        Button1.Location = New Point(931, 752)
         Button1.Name = "Button1"
         Button1.Size = New Size(94, 30)
         Button1.TabIndex = 32
@@ -425,7 +450,7 @@ Partial Class AppoitmentForm
         ' 
         ' EditBtn
         ' 
-        EditBtn.Location = New Point(931, 753)
+        EditBtn.Location = New Point(1194, 753)
         EditBtn.Name = "EditBtn"
         EditBtn.Size = New Size(94, 29)
         EditBtn.TabIndex = 33
@@ -434,7 +459,7 @@ Partial Class AppoitmentForm
         ' 
         ' PrintBtn
         ' 
-        PrintBtn.Location = New Point(1177, 753)
+        PrintBtn.Location = New Point(1766, 753)
         PrintBtn.Name = "PrintBtn"
         PrintBtn.Size = New Size(94, 29)
         PrintBtn.TabIndex = 34
@@ -443,7 +468,7 @@ Partial Class AppoitmentForm
         ' 
         ' DeleteBtn
         ' 
-        DeleteBtn.Location = New Point(1437, 753)
+        DeleteBtn.Location = New Point(1487, 752)
         DeleteBtn.Name = "DeleteBtn"
         DeleteBtn.Size = New Size(94, 29)
         DeleteBtn.TabIndex = 35
@@ -477,12 +502,22 @@ Partial Class AppoitmentForm
         DestinationCombo.Size = New Size(151, 32)
         DestinationCombo.TabIndex = 38
         ' 
+        ' SearchBtn
+        ' 
+        SearchBtn.Location = New Point(1324, 161)
+        SearchBtn.Name = "SearchBtn"
+        SearchBtn.Size = New Size(94, 32)
+        SearchBtn.TabIndex = 39
+        SearchBtn.Text = "Search"
+        SearchBtn.UseVisualStyleBackColor = True
+        ' 
         ' AppoitmentForm
         ' 
-        AutoScaleDimensions = New SizeF(11F, 24F)
+        AutoScaleDimensions = New SizeF(11.0F, 24.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(24), CByte(117), CByte(186))
-        ClientSize = New Size(1565, 806)
+        ClientSize = New Size(1892, 806)
+        Controls.Add(SearchBtn)
         Controls.Add(DestinationCombo)
         Controls.Add(SeatsCombo)
         Controls.Add(Button5)
@@ -490,8 +525,7 @@ Partial Class AppoitmentForm
         Controls.Add(PrintBtn)
         Controls.Add(EditBtn)
         Controls.Add(Button1)
-        Controls.Add(TextBox10)
-        Controls.Add(Label14)
+        Controls.Add(SearchTxtBox)
         Controls.Add(CustomerPhoneTextBox)
         Controls.Add(Label13)
         Controls.Add(GateCombo)
@@ -520,7 +554,7 @@ Partial Class AppoitmentForm
         Controls.Add(Label2)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
-        Font = New Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Font = New Font("Roboto", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Margin = New Padding(4)
         Name = "AppoitmentForm"
         Text = "Appoitment"
@@ -558,8 +592,7 @@ Partial Class AppoitmentForm
     Friend WithEvents GateCombo As ComboBox
     Friend WithEvents Label13 As Label
     Friend WithEvents CustomerPhoneTextBox As TextBox
-    Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents SearchTxtBox As TextBox
     Friend WithEvents Button1 As Button
     Friend WithEvents EditBtn As Button
     Friend WithEvents PrintBtn As Button
@@ -576,4 +609,9 @@ Partial Class AppoitmentForm
     Friend WithEvents email As DataGridViewTextBoxColumn
     Friend WithEvents phoneNo As DataGridViewTextBoxColumn
     Friend WithEvents gender As DataGridViewTextBoxColumn
+    Friend WithEvents FlightClass As DataGridViewTextBoxColumn
+    Friend WithEvents Seats As DataGridViewTextBoxColumn
+    Friend WithEvents Destination As DataGridViewTextBoxColumn
+    Friend WithEvents Gate As DataGridViewTextBoxColumn
+    Friend WithEvents SearchBtn As Button
 End Class
