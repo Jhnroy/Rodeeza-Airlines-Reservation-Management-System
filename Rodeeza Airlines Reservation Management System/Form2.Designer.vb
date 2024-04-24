@@ -513,7 +513,7 @@ Partial Class AppoitmentForm
         ' 
         ' AppoitmentForm
         ' 
-        AutoScaleDimensions = New SizeF(11.0F, 24.0F)
+        AutoScaleDimensions = New SizeF(11F, 24F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(24), CByte(117), CByte(186))
         ClientSize = New Size(1892, 806)
@@ -554,7 +554,7 @@ Partial Class AppoitmentForm
         Controls.Add(Label2)
         Controls.Add(PictureBox1)
         Controls.Add(Label1)
-        Font = New Font("Roboto", 12.0F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Font = New Font("Roboto", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Margin = New Padding(4)
         Name = "AppoitmentForm"
         Text = "Appoitment"

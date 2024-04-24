@@ -8,7 +8,6 @@ Public Class AppoitmentForm
 
 
     Private selectedRowIndex As Integer = -1
-
     Private random As New Random()
 
     Private Sub AppoitmentForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -21,34 +20,18 @@ Public Class AppoitmentForm
         Console.WriteLine("Selected Row Index: " & selectedRowIndex.ToString())
     End Sub
 
-    Private Sub GenerateRandomFlightID()
-        ' Generate a random integer between 1000 and 9999
-        Dim randomInteger As Integer = random.Next(1000, 10000)
+    Private Sub GenerateRandomIDs()
+        ' Generate a random integer between 1000000000 and 2147483521 for CustomerID
+        Dim randomCustomerId As Integer = random.Next(2000000000, 2147483521)
+        Dim customerId As String = randomCustomerId.ToString()
 
-        ' Generate a random string of 3 uppercase letters
-        Dim chars As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        Dim randomString As String = New String(Enumerable.Repeat(chars, 3).Select(Function(s) s(random.Next(s.Length))).ToArray())
+        ' Generate a random integer between 1000000000 and 2147483521 for FlightID
+        Dim randomFlightId As Integer = random.Next(2000000000, 2147483521)
+        Dim flightId As String = "FLIGHT-DV-" & randomFlightId.ToString()
 
-        ' Combine the random integer and random string to form the FlightID
-        Dim flightID As String = randomInteger.ToString() & randomString
-
-        ' Assign the generated FlightID to the TextBox
-        FlightIDTxtBox.Text = flightID
-    End Sub
-
-    Private Sub GenerateRandomCustomerID()
-        ' Generate a random integer between 1000 and 9999
-        Dim randomInteger As Integer = random.Next(1000, 10000)
-
-        ' Generate a random string of 2 uppercase letters
-        Dim chars As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        Dim randomString As String = New String(Enumerable.Repeat(chars, 2).Select(Function(s) s(random.Next(s.Length))).ToArray())
-
-        ' Combine the random integer and random string to form the CustomerID
-        Dim customerId As String = randomInteger.ToString() & randomString
-
-        ' Assign the generated CustomerID to the TextBox
+        ' Assign the generated IDs to the TextBoxes
         CustomerIDTextBox.Text = customerId
+        FlightIDTxtBox.Text = flightId
     End Sub
 
     Private Sub CustomerIDTextBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerIDTextBox.TextChanged
@@ -77,8 +60,7 @@ Public Class AppoitmentForm
         End If
 
         ' If data doesn't exist, add it to the DataGridView
-        GenerateRandomCustomerID() ' Generate random CustomerID
-        GenerateRandomFlightID() ' Generate random FlightID
+        GenerateRandomIDs() ' Generate random IDs
         allRecordsData.Rows.Add(
         CustomerIDTextBox.Text,
         FlightIDTxtBox.Text,
@@ -104,6 +86,7 @@ Public Class AppoitmentForm
         ' Clear the input fields after adding data
         ClearInputFields()
     End Sub
+
 
     Private Sub SaveNewDataToDatabase(ByVal customerId As String, ByVal flightId As String, ByVal firstName As String,
                                   ByVal lastName As String, ByVal birthday As String, ByVal address As String,
@@ -142,14 +125,20 @@ Public Class AppoitmentForm
         End Try
     End Sub
 
-
-
     Private Sub ClearInputFields()
         ' Clear all input fields after adding data
+        CustomerIDTextBox.Text = ""
+        FlightIDTxtBox.Text = ""
         CustomerFirstNameTextBox.Text = ""
         CustomerLastNameTextBox.Text = ""
-        ' Clear other fields as well...
-        ' For example: dtbirthday.Value = DateTime.Today
+        CustomerAddressTextBox.Text = ""
+        CustomerEmailTextBox.Text = ""
+        CustomerPhoneTextBox.Text = ""
+        FlightClassCombo.Text = ""
+        SeatsCombo.Text = ""
+        DestinationCombo.Text = ""
+        GateCombo.Text = ""
+
     End Sub
 
     Private Sub allRecordsData_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles allRecordsData.CellContentClick
@@ -192,16 +181,15 @@ Public Class AppoitmentForm
                 table.AddCell(cell.Value.ToString())
             Next
 
-            ' Add the table to the document
+
             doc.Add(table)
 
-            ' Close the document
+
             doc.Close()
 
-            ' Show success message
+
             MessageBox.Show("PDF file generated successfully.", "Success")
 
-            ' Specify the path to the PDF viewer executable
             Dim pdfViewerPath As String = "C:\Program Files\Mozilla Firefox\firefox.exe"
 
             ' Check if the PDF viewer executable exists
@@ -414,5 +402,34 @@ Public Class AppoitmentForm
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles SearchBtn.Click
 
     End Sub
+
+    Private Sub CustomerAddressTextBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerAddressTextBox.TextChanged
+
+    End Sub
+
+    Private Sub CustomerEmailTextBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerEmailTextBox.TextChanged
+
+    End Sub
+
+    Private Sub CustomerPhoneTextBox_TextChanged(sender As Object, e As EventArgs) Handles CustomerPhoneTextBox.TextChanged
+
+    End Sub
+
+    Private Sub FlightClassCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FlightClassCombo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub SeatsCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SeatsCombo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub DestinationCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DestinationCombo.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub GateCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GateCombo.SelectedIndexChanged
+
+    End Sub
+
     ' Other event handlers and methods...
 End Class
