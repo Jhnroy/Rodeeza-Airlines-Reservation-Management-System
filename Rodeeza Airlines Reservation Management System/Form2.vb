@@ -83,7 +83,7 @@ Public Class AppoitmentForm
                           CustomerGenderLabel.Text, FlightClassCombo.Text, SeatsCombo.Text, DestinationCombo.Text,
                           GateCombo.Text)
 
-        ' Clear the input fields after adding data
+
         ClearInputFields()
     End Sub
 
@@ -142,7 +142,7 @@ Public Class AppoitmentForm
     End Sub
 
     Private Sub allRecordsData_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles allRecordsData.CellContentClick
-        ' Handle cell content click event if needed
+
 
     End Sub
 
@@ -161,14 +161,14 @@ Public Class AppoitmentForm
         Dim filename As String = "CustomerData.pdf"
 
         Try
-            ' Create a PdfWriter object to write the document to a file
+
             Dim writer As PdfWriter = PdfWriter.GetInstance(doc, New FileStream(filename, FileMode.Create))
 
-            ' Open the document
+
             doc.Open()
 
-            ' Create a PdfPTable to store the data
-            Dim table As New PdfPTable(2) ' Assuming two columns for simplicity
+
+            Dim table As New PdfPTable(2)
             table.WidthPercentage = 100
 
             ' Add headers
@@ -255,7 +255,7 @@ Public Class AppoitmentForm
             Dim editedGate As String = allRecordsData.Rows(selectedRowIndex).Cells(12).Value.ToString()
 
             ' Update the data in the database
-            Dim query As String = "UPDATE customertable_2 SET 
+            Dim query As String = "UPDATE customer SET 
                                     FirstName = @FirstName, 
                                     LastName = @LastName, 
                                     Birthday = @Birthday, 
@@ -272,7 +272,7 @@ Public Class AppoitmentForm
 
             Using connection As New MySqlConnection("server=" & db_server & "; port=" & db_port & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name & ";")
                 Using command As New MySqlCommand(query, connection)
-                    command.Parameters.AddWithValue("@CustomerId", editedCustomerID)
+
                     command.Parameters.AddWithValue("@FlightId", editedFlightID)
                     command.Parameters.AddWithValue("@FirstName", editedFirstName)
                     command.Parameters.AddWithValue("@LastName", editedLastName)
