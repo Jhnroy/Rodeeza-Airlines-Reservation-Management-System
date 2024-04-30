@@ -21,11 +21,11 @@ Public Class AppoitmentForm
     End Sub
 
     Private Sub GenerateRandomIDs()
-        ' Generate a random integer between 1000000000 and 2147483521 for CustomerID
+
         Dim randomCustomerId As Integer = random.Next(2000000000, 2147483521)
         Dim customerId As String = randomCustomerId.ToString()
 
-        ' Generate a random integer between 1000000000 and 2147483521 for FlightID
+
         Dim randomFlightId As Integer = random.Next(2000000000, 2147483521)
         Dim flightId As String = "FLIGHT-DV-" & randomFlightId.ToString()
 
@@ -46,7 +46,7 @@ Public Class AppoitmentForm
         ' Check if data with the same Customer ID already exists in the DataGridView
         Dim exists As Boolean = False
         For Each row As DataGridViewRow In allRecordsData.Rows
-            ' Assuming the first column (index 0) contains the unique identifier (e.g., CustomerID)
+
             If row.Cells(0).Value IsNot Nothing AndAlso row.Cells(0).Value.ToString() = CustomerIDTextBox.Text Then
                 exists = True
                 Exit For
@@ -59,8 +59,8 @@ Public Class AppoitmentForm
             Return
         End If
 
-        ' If data doesn't exist, add it to the DataGridView
-        GenerateRandomIDs() ' Generate random IDs
+
+        GenerateRandomIDs()
         allRecordsData.Rows.Add(
         CustomerIDTextBox.Text,
         FlightIDTxtBox.Text,
@@ -87,7 +87,7 @@ Public Class AppoitmentForm
         ClearInputFields()
     End Sub
 
-
+    'For the save ng new data record input ng User
     Private Sub SaveNewDataToDatabase(ByVal customerId As String, ByVal flightId As String, ByVal firstName As String,
                                   ByVal lastName As String, ByVal birthday As String, ByVal address As String,
                                   ByVal email As String, ByVal phone As String, ByVal gender As String,
@@ -147,6 +147,7 @@ Public Class AppoitmentForm
     End Sub
 
     Private Sub PrintBtn_Click(sender As Object, e As EventArgs) Handles PrintBtn.Click
+
         ' Check if a row is selected
         If selectedRowIndex < 0 OrElse selectedRowIndex >= allRecordsData.Rows.Count Then
             MessageBox.Show("Please select a valid row to print.")
@@ -194,9 +195,11 @@ Public Class AppoitmentForm
 
             ' Check if the PDF viewer executable exists
             If File.Exists(pdfViewerPath) Then
+
                 ' Open the PDF file using the specified PDF viewer
                 Process.Start(pdfViewerPath, filename)
             Else
+
                 ' Show error message if the PDF viewer executable is not found
                 MessageBox.Show("PDF viewer application not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -254,7 +257,7 @@ Public Class AppoitmentForm
             Dim editedDestination As String = allRecordsData.Rows(selectedRowIndex).Cells(11).Value.ToString()
             Dim editedGate As String = allRecordsData.Rows(selectedRowIndex).Cells(12).Value.ToString()
 
-            ' Update the data in the database
+            '  For The Update ng data in the database
             Dim query As String = "UPDATE customer SET 
                                     FirstName = @FirstName, 
                                     LastName = @LastName, 
@@ -305,6 +308,7 @@ Public Class AppoitmentForm
             Dim queryStr As String = "SELECT * FROM customertable_2 WHERE FirstName LIKE @searchKeyword OR LastName LIKE @searchKeyword OR CustomerId LIKE @searchkeyword"
             Using connection As New MySqlConnection("server=" & db_server & "; port=" & db_port & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name & ";")
                 Using command As New MySqlCommand(queryStr, connection)
+
                     ' Add a parameter for the search keyword
                     command.Parameters.AddWithValue("@searchKeyword", "%" & SearchTxtBox.Text.Trim() & "%")
 
@@ -312,7 +316,8 @@ Public Class AppoitmentForm
                     Using reader As MySqlDataReader = command.ExecuteReader()
                         allRecordsData.Rows.Clear()
                         While reader.Read()
-                            ' Add the retrieved rows to the DataGridView
+
+                            ' For The Add ng retrieved rows to the DataGridView
                             Dim rowIndex As Integer = allRecordsData.Rows.Add(reader.GetValue(0), reader.GetValue(1), reader.GetValue(2), reader.GetValue(3),
                                                                           reader.GetValue(4), reader.GetValue(5), reader.GetValue(6), reader.GetValue(7),
                                                                           reader.GetValue(8), reader.GetValue(9), reader.GetValue(10), reader.GetValue(11),
@@ -331,7 +336,8 @@ Public Class AppoitmentForm
     End Sub
 
     Private Sub DeleteBtn_Click(sender As Object, e As EventArgs) Handles DeleteBtn.Click
-        ' Check if a row is selected
+
+        '  For The Check if a row is selected
         If selectedRowIndex < 0 OrElse selectedRowIndex >= allRecordsData.Rows.Count Then
             MessageBox.Show("Please select a valid row to delete.")
             Return
@@ -340,14 +346,15 @@ Public Class AppoitmentForm
         ' Confirm deletion with user
         If MessageBox.Show("Are you sure you want to delete this record?", "Confirm Delete", MessageBoxButtons.YesNo) = DialogResult.Yes Then
             Try
-                ' Remove the selected row from the DataGridView
+
+                '  For The Remove ng selected row from the DataGridView
                 Dim selectedRow As DataGridViewRow = allRecordsData.Rows(selectedRowIndex)
 
-                ' Retrieve CustomerID and FlightID of the row to be deleted
+                '  For the Retrieve CustomerID and FlightID of the row to be deleted
                 Dim customerIdToDelete As String = selectedRow.Cells(0).Value.ToString()
                 Dim flightIdToDelete As String = selectedRow.Cells(1).Value.ToString()
 
-                ' Delete the corresponding record from the database
+                ' For The delete ng record from the database
                 Dim deleteQuery As String = "DELETE FROM customertable_2 WHERE CustomerId = @CustomerId AND FlightId = @FlightId"
 
                 Using connection As New MySqlConnection("server=" & db_server & "; port=" & db_port & ";uid=" & db_uid & ";password=" & db_pwd & ";database=" & db_name & ";")
@@ -374,6 +381,7 @@ Public Class AppoitmentForm
     End Sub
 
     Private Sub SearchBtn_Click(sender As Object, e As EventArgs) Handles SearchBtn.Click
+
         ' Call the LoadCustomer method to load filtered data based on the search criteria
         LoadCustomer()
     End Sub
@@ -431,5 +439,4 @@ Public Class AppoitmentForm
 
     End Sub
 
-    ' Other event handlers and methods...
 End Class
